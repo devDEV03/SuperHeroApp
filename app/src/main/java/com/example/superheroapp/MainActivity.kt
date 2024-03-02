@@ -135,7 +135,7 @@ fun SuperheroCards(
                     contentDescription = null,
                     modifier = Modifier
                         .size(dimensionResource(id = R.dimen.image_size))
-                        .clip(MaterialTheme.shapes.small)
+
                     )
             }
         }

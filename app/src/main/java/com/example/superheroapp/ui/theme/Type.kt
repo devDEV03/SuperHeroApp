@@ -36,6 +36,13 @@ import com.example.superheroapp.R
 //    */
 //)
 
+
+val font1 = FontFamily(
+    Font(R.font.microregular)
+)
+val kode = FontFamily(
+    Font(R.font.kode)
+)
 val Cabin = FontFamily(
     Font(R.font.cabin_regular, FontWeight.Normal),
     Font(R.font.cabin_bold, FontWeight.Bold)
@@ -50,7 +57,7 @@ val Typography = Typography(
         letterSpacing = 0.5.sp
     ),
     displayLarge = TextStyle(
-        fontFamily = Cabin,
+        fontFamily = kode,
         fontWeight = FontWeight.Normal,
         fontSize = 30.sp
     ),
