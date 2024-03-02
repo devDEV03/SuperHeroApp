@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -34,6 +35,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -58,8 +61,10 @@ class MainActivity : ComponentActivity() {
             SuperHeroAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.tertiary
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.primary),
+//                    color = MaterialTheme.colorScheme.onPrimaryContainer
                 ) {
                     SuperheroApp()
                 }
@@ -77,7 +82,8 @@ fun SuperheroApp(){
         }
     ) {
         LazyColumn(
-            contentPadding = it){
+            contentPadding = it
+        ){
             items(listHeros){
                 SuperheroCards(hero = it)
             }
@@ -96,10 +102,15 @@ fun SuperheroCards(
         modifier = Modifier
             .padding(16.dp, 8.dp)
             .clip(MaterialTheme.shapes.medium)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.primaryContainer),
         elevation = CardDefaults.cardElevation(
-            defaultElevation = 2.dp
+            defaultElevation = 2.dp,
+        ),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.inversePrimary
         )
+
     ) {
         Row (
             verticalAlignment = Alignment.CenterVertically,
@@ -147,6 +158,6 @@ fun SuperheroTopBar(){
             )
         }
     },
-        modifier = Modifier
+        modifier = Modifier.background(MaterialTheme.colorScheme.onBackground)
     )
 }
